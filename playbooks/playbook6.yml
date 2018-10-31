@@ -1,0 +1,12 @@
+---
+- name: "This is the playbook to install NTP"
+  hosts: PROD
+
+  tasks:
+    - name: "Install NTP"
+      yum: "name=ntp state=present"
+    - name: "We are checking if ntp.conf file is present"
+      file: "path=/etc/ntp.conf"
+    - name: "We will start the service"
+      systemd: "name=ntpd enabled=true"
+...

@@ -1,0 +1,10 @@
+---
+- name: "This is the playbook to create users and groups"
+  hosts: PROD
+
+  tasks:
+    - name: "This is my first user creation"
+      user: "name=usertest11 uid=8777 groups=grouptest home=/var/tmp/usertest11 shell=/bin/sh"
+    - name: "Creating groups"
+      group: "name=grouptest gid=8777 state=present"
+...

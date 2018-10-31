@@ -1,0 +1,13 @@
+---
+- name: "This is the playbook to install git and configure users"
+  hosts: PROD
+
+  tasks:
+    - name: "Installing git"
+      yum: "name=git state=present"
+    - name: "We will Configure user and email"
+      shell: "git config --global user.email 'jedidiahds@gmail.com'; git config --global user.name 'Jedidiah.D'"
+      register: gitInstalled
+    - name: "We will check if git is installed"
+      debug: var=gitInstalled
+...

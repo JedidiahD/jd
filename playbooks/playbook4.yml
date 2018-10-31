@@ -1,0 +1,10 @@
+---
+- name: "This is the playbook for files and directories"
+  hosts: PROD
+
+  tasks:
+    - name: "We are creating root directory with root privileges"
+      file: "state=directory owner=root path=/tmp/dir1"
+    - name: "We are copying file from /var/log/messages"
+      copy: "owner=usertest src=/var/log/messages dest=/tmp/dir1/test"
+...
