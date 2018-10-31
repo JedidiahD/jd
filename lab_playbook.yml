@@ -1,0 +1,14 @@
+---
+- name: "This is the playbook to install httpd, push the code to git and install httpd on remote server"
+  hosts: PROD
+
+  tasks:
+    - name: "Installing HTTP"
+      yum: "name=httpd state=present"
+      register: httpdInstallation
+    - name: "THIS IS MY WEBSERVER INSTALLED USING ANSIBLE"
+      debug: var=httpdInstallation
+    - name: Verifying if it is installed"
+      copy: "dest='/var/www/html/index.html' content='Created using Ansible'"
+    - name: "Start HTTPD server"
+      systemd: "name=httpd enabled=true"
